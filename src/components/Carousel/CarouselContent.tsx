@@ -3,6 +3,7 @@ import Button from "../Button/Button";
 
 interface CarouselContentProps {
   status: string;
+  title: string;
 }
 
 const CarouselContent = (props: CarouselContentProps) => {
@@ -19,7 +20,7 @@ const CarouselContent = (props: CarouselContentProps) => {
         }}
       >
         <div className=" container-md">
-          <h1>Exquisite Furniture Collections</h1>
+          <h1>{props.title}</h1>
           <p>
             After more than two decades of experience in the industry, Melandas
             created opportunities to offer you the best qualities of products by
@@ -27,7 +28,7 @@ const CarouselContent = (props: CarouselContentProps) => {
             you can choose your furniture with confidence knowing we provide the
             best products from these leading brands.
           </p>
-          <Button title={"Discover"} link={"/"} />
+          <Button title={"Discover"} link={"/"} icon="" />
         </div>
       </div>
     </div>

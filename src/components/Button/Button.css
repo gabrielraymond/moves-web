@@ -27,3 +27,9 @@
  .btn-link .secondary-btn{
   color: #17949d;
 }
+
+.btn-icon{
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}

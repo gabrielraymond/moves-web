@@ -10,7 +10,7 @@ const Navbar = () => {
           <img src="/Asset/MOVES LOGO WHITE-01 1.png" alt="Logo" />
         </div>
         <div className="">
-          <Button title={"hello"} link={"/"} />
+          <Button title={"Login"} link={"/login"} icon="/Asset/bxs_user.png" />
         </div>
       </nav>
     </header>

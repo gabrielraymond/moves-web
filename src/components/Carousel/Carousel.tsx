@@ -2,12 +2,25 @@ import React from "react";
 import "./Carousel.css";
 import CarouselContent from "./CarouselContent";
 
+const carouselData = [
+  {
+    id: 1,
+    title: "Exquisite Furniture Collections",
+  },
+  {
+    id: 2,
+    title: "Exquisite Furniture Collections",
+  },
+];
+
 const Carousel = () => {
   return (
     <div id="carouselBenner" className="carousel slide" data-bs-ride="carousel">
       <div className="carousel-inner text-center">
-        <CarouselContent status="active" />
-        <CarouselContent status="" />
+        <CarouselContent status="active" title="title" />
+        {carouselData.map((data) => {
+          return <CarouselContent status="" key={data.id} title={data.title} />;
+        })}
       </div>
       <button
         className="carousel-control-prev"
