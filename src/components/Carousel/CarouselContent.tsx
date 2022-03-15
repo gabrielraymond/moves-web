@@ -1,34 +1,34 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Button from "../Button/Button";
 
 interface CarouselContentProps {
   status: string;
   title: string;
+  desc: string;
 }
 
 const CarouselContent = (props: CarouselContentProps) => {
   return (
-    <div className={`carousel-item ${props.status}`}>
+    <div
+      className={`carousel-item ${props.status}`}
+      style={{
+        background:
+          "linear-gradient(0deg, rgba(39, 39, 39, 0.5), rgba(39, 39, 39, 0.5)), url('/Asset/LandingPage/Rectangle 1959.png')",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+      }}
+    >
       <div
         className="d-flex justify-content-center align-items-center"
-        style={{
-          background:
-            "linear-gradient(0deg, rgba(39, 39, 39, 0.5), rgba(39, 39, 39, 0.5)), url('/Asset/Rectangle 1959.png')",
-          height: "80vh",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-        }}
+        style={{ height: "85vh" }}
       >
         <div className=" container-md">
           <h1>{props.title}</h1>
-          <p>
-            After more than two decades of experience in the industry, Melandas
-            created opportunities to offer you the best qualities of products by
-            partnering with the global forefront furniture brands. With Melandas
-            you can choose your furniture with confidence knowing we provide the
-            best products from these leading brands.
-          </p>
-          <Button title={"Discover"} link={"/"} icon="" />
+          <p>{props.desc}</p>
+          <Link to={"/"}>
+            <Button title={"Discover"} icon="" />
+          </Link>
         </div>
       </div>
     </div>

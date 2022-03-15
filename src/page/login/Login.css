@@ -1,0 +1,33 @@
+#login {
+  background: url("/public/Asset/Login/Login.png");
+  height: 100vh;
+  color: #fff;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.login-wrapper {
+  width: 50%;
+}
+
+@media screen and (max-width: 768px) {
+  .login-wrapper {
+    width: 100%;
+  }
+}
+.login-wrapper img {
+  width: 75%;
+}
+
+.login-wrapper .form-control {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.login-wrapper h3 {
+  margin: 60px 0 24px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 36px;
+}

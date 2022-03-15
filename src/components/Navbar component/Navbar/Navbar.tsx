@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Button from "../../Button/Button";
 import "./Navbar.css";
 
@@ -7,10 +8,12 @@ const Navbar = () => {
     <header className="d-flex justify-content-center">
       <nav className="navbar container-md">
         <div className="navbar-logo">
-          <img src="/Asset/MOVES LOGO WHITE-01 1.png" alt="Logo" />
+          <img src="/Asset/LandingPage/MOVES LOGO WHITE-01 1.png" alt="Logo" />
         </div>
         <div className="">
-          <Button title={"Login"} link={"/login"} icon="/Asset/bxs_user.png" />
+          <Link to={"/login"}>
+            <Button title={"Login"} icon="/Asset/LandingPage/bxs_user.png" />
+          </Link>
         </div>
       </nav>
     </header>

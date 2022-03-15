@@ -1,6 +1,11 @@
 .btn {
   border-radius: 4px;
   padding: 10px 0;
+  text-decoration: none;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
 }
 
 .primary-btn {
@@ -9,27 +14,18 @@
 
 .secondary-btn {
   background: #ffffff;
-  border: 1px solid #17949D;
+  border: 1px solid #17949d;
 }
 
-
-.btn-link {
-  text-decoration: none;
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 700;
-}
-
- .btn-link .primary-btn{
+.primary-btn {
   color: #ffffff;
 }
-
- .btn-link .secondary-btn{
+.secondary-btn {
   color: #17949d;
 }
 
-.btn-icon{
-    width: 24px;
-    height: 24px;
-    margin-right: 10px;
+.btn-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
 }
