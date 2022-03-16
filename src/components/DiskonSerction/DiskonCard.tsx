@@ -2,14 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 interface diskonCardProps {
-  id: any | null;
   imgUrl: string;
 }
 
 const DiskonCard = (props: diskonCardProps) => {
   return (
     <div className="col-md-4">
-      <div key={props.id}>
+      <div>
         <Link to={"/"}>
           <img
             src={props.imgUrl}

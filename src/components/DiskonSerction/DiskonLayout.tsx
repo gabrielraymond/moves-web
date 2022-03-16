@@ -39,7 +39,7 @@ const DiskonLayout = () => {
       <div className="container ">
         <div className="row ">
           {diskonData.map((data) => {
-            return <DiskonCard imgUrl={data.imgUrl} id={data.id} />;
+            return <DiskonCard imgUrl={data.imgUrl} key={data.id} />;
           })}
         </div>
         <div

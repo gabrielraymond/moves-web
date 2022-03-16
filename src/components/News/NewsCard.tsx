@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import Button from "../Button/Button";
 
 interface newsCardProps {
-  id: any | null;
   imgUrl: string;
   title: string;
   description: string;
@@ -13,7 +12,7 @@ interface newsCardProps {
 
 const NewsCard = (props: newsCardProps) => {
   return (
-    <div className="news-card col-md-4" key={props.id}>
+    <div className="news-card col-md-4">
       <img
         src={props.imgUrl}
         alt="news"
