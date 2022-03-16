@@ -1,0 +1,13 @@
+.header{
+    margin: 20px 0;
+}
+
+.header-text h1{
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 54px;
+  /* identical to box height */
+
+  color: #313132;
+}

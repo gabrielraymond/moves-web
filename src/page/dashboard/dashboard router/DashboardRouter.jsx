@@ -7,8 +7,12 @@ const DashboardRouter = () => {
     <div id="dashboard">
       <Sidebar />
       <main
-        className="dashboard-layout col-md-9  col-lg-10 px-md-4"
-        style={{ marginLeft: "265px" }}
+        className="dashboard-layout"
+        style={{
+          marginLeft: "265px",
+          padding: "30px 60px",
+          width: "calc(100% - 265px)",
+        }}
       >
         <Switch>
           <Route path={"/dashboard"} component={Dashboard} />

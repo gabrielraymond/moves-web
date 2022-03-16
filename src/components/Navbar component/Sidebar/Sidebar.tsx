@@ -17,7 +17,7 @@ const Sidebar = () => {
       id="sidebarMenu"
       className="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse"
     >
-      <div className="position-sticky pt-3">
+      <div className="position-sticky ">
         <div className="sidebar-logo">
           <img src="/Asset/MOVES LOGO-01 1.png" alt="Logo" />
         </div>
