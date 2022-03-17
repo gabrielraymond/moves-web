@@ -11,7 +11,7 @@ const Dashboard = () => {
   const isAuthentication = useRecoilValue(authentication);
   // const token = useRecoilValue(tokenAuth);
   console.log(localStorage.token);
-  let tokenA = localStorage.getItem("token");
+  const tokenA = localStorage.getItem("token");
   useEffect(() => {
     const fetchData = async () => {
       let token = `Bearer ${tokenA}`;
