@@ -1,7 +1,48 @@
-import React from "react";
+import axios from "axios";
+import { atom, selector } from "recoil";
 
-const index = () => {
-  return <div>index</div>;
-};
+let isAuthentication = false;
+if (localStorage.token) {
+  isAuthentication = true;
+}
 
-export default index;
+const authentication = atom({
+  key: "Authentication",
+  default: isAuthentication,
+});
+
+const tokenAuth = atom({
+  key: "login",
+  default: localStorage.token,
+});
+
+// //------ Header --------
+// let token = `Bearer ${localStorage.token}`;
+// const config = {
+//   headers: {
+//     "Content-Type": "application/json",
+//     Authorization: token,
+//   },
+// };
+// console.log(token);
+// const user = selector({
+//   key: "auth-user",
+//   get: async () => {
+//     let user = null;
+
+//     try {
+//       let { data } = await axios.get(
+//         "https://melandas.ilios.id/api/v1/users/me",
+//         config
+//       );
+//       user = { user: data };
+//       console.log(user);
+//     } catch (error: any) {
+//       user = { user: error.message };
+//     }
+
+//     return user;
+//   },
+// });
+
+export { tokenAuth, authentication };

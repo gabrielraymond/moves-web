@@ -1,25 +1,57 @@
+import axios from "axios";
 import React, { useState } from "react";
+import { Redirect } from "react-router-dom";
+import { useRecoilState } from "recoil";
 import Button from "../../components/Button/Button";
+import { authentication } from "../../store";
 import "./Login.css";
+// import { user } from "../../store";
 
 const Login = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isAuthentication, setIsAuthentication] =
+    useRecoilState(authentication);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const data = {
       email: email,
       password: password,
     };
-    console.log(data);
+
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    try {
+      let res = await axios.post(
+        "https://melandas.ilios.id/api/v1/auth/token",
+        data,
+        config
+      );
+      console.log(res.data);
+      setIsAuthentication(true);
+      localStorage.setItem("token", res.data.data.token);
+    } catch (error: any) {
+      console.log(error.message);
+      setIsAuthentication(false);
+    }
   };
 
-  return (
+  return !isAuthentication && !localStorage.token ? (
     <section
       id="login"
       className="login d-flex justify-content-center align-items-center"
     >
+      {isAuthentication && localStorage.token ? (
+        <Redirect to="/dashboard" />
+      ) : (
+        ""
+      )}
       <div className="login-wrapper text-center">
         <img src="/Asset/Login/MOVES LOGO WHITE-01 1 (1).PNG" alt="Logo" />
         <h3>Welcome To POS Melandas</h3>
@@ -50,6 +82,8 @@ const Login = () => {
         </form>
       </div>
     </section>
+  ) : (
+    <Redirect to="/dashboard" />
   );
 };
 

@@ -1,12 +1,45 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect } from "react";
+import { Redirect } from "react-router-dom";
+import { useRecoilValue } from "recoil";
 import Header from "../../../components/Header/Header";
 import User from "../../../components/UserCard/User";
+import { authentication, tokenAuth } from "../../../store";
 import "./Dashboard.css";
 
 const Dashboard = () => {
-  return (
+  const isAuthentication = useRecoilValue(authentication);
+  // const token = useRecoilValue(tokenAuth);
+  console.log(localStorage.token);
+  let tokenA = localStorage.getItem("token");
+  useEffect(() => {
+    const fetchData = async () => {
+      let token = `Bearer ${tokenA}`;
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token,
+        },
+      };
+      console.log(config);
+      try {
+        let { data } = await axios.get(
+          "https://melandas.ilios.id/api/v1/users/me",
+          config
+        );
+
+        console.log(data);
+      } catch (error: any) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, [tokenA]);
+
+  return isAuthentication ? (
     <div>
       <Header />
+
       <User />
       <div className="d-flex justify-content-between" style={{}}>
         <div className="d-flex align-items-center">
@@ -165,6 +198,8 @@ const Dashboard = () => {
         </div>
       </div>
     </div>
+  ) : (
+    <Redirect to="/login" />
   );
 };
 

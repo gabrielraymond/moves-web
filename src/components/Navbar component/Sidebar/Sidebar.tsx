@@ -1,5 +1,7 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, Redirect, useLocation } from "react-router-dom";
+import { useRecoilState } from "recoil";
+import { authentication } from "../../../store";
 import "./Sidebar.css";
 
 const Sidebar = () => {
@@ -12,7 +14,16 @@ const Sidebar = () => {
   //Javascript split method to get the name of the path in array
   const splitLocation = pathname.split("/");
 
-  return (
+  const [isAuthentication, setIsAuthentication] =
+    useRecoilState(authentication);
+
+  const handleLogOut = () => {
+    localStorage.removeItem("token");
+    setIsAuthentication(false);
+    return <Redirect to="/login" />;
+  };
+
+  return isAuthentication ? (
     <nav
       id="sidebarMenu"
       className="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse"
@@ -100,12 +111,13 @@ const Sidebar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link
+            <div
               className={`nav-link ${
                 splitLocation[1] === "sign-out" && "active"
               }`}
               aria-current="page"
-              to="/sign-out"
+              style={{ cursor: "pointer" }}
+              onClick={handleLogOut}
             >
               <img
                 src="/Asset/Sidebar/Group 1765.png"
@@ -113,11 +125,13 @@ const Sidebar = () => {
                 alt="dashboard"
               />
               Sign Out
-            </Link>
+            </div>
           </li>
         </ul>
       </div>
     </nav>
+  ) : (
+    <Redirect to={"/login"} />
   );
 };
 
